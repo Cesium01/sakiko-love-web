@@ -5,7 +5,7 @@ import OSS from 'ali-oss';
 import { Photo } from '@/app/page';
 
 const REGIONS = ["ne", "nc", "ec", "sc", "mc", "sw", "nw"];
-const REGION_MAP = {
+const REGION_MAP: Record<string, string> = {
     ne: '东北',
     nc: '华北',
     ec: '华东',
@@ -17,8 +17,8 @@ const REGION_MAP = {
 const VIDEO_REGEX = /\.(mp4|mov|avi|wmv|mkv|flv|webm)$/i;
 const client = new OSS({
     region: 'oss-cn-hangzhou',
-    accessKeyId: process.env.ACCESS_KEY_ID,
-    accessKeySecret: process.env.ACCESS_KEY_SECRET,
+    accessKeyId: process.env.ACCESS_KEY_ID || '',
+    accessKeySecret: process.env.ACCESS_KEY_SECRET || '',
     authorizationV4: true,
     bucket: 'tlias-cesium',
     endpoint: 'https://oss-cn-hangzhou.aliyuncs.com',
@@ -55,8 +55,8 @@ async function getPhotosByRegion(region: string): Promise<Photo[]> {
     return resp.objects.filter((obj) => !obj.name.endsWith(`${region}/`)).map((obj) => {
         return {
             src: `https://tlias-cesium.oss-cn-hangzhou.aliyuncs.com/${obj.name}`,
-            alt: obj.name.split('/').pop().split('.')[0] || '',
-            region: REGION_MAP[region],
+            alt: obj.name.split('/').pop()?.split('.')[0] || '',
+            region: REGION_MAP[region] || '',
             isVideo: VIDEO_REGEX.test(obj.name),
         }
     });
