@@ -59,7 +59,7 @@ export default function ImageModal({ photo, onClose }: ImageModalProps) {
               src={photo.src}
               alt={photo.alt}
               fill
-              quality={92}
+              unoptimized
               priority
               className="object-contain"
               sizes="(max-width: 768px) 95vw, (max-width: 1200px) 85vw, 1200px"

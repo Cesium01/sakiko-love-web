@@ -81,7 +81,7 @@ export default function Home() {
                 src={photo.src}
                 alt={photo.alt}
                 fill
-                quality={75}
+                unoptimized
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />

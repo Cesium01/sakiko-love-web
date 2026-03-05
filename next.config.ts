@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-    qualities: [75, 92]
+    unoptimized: true,
   },
 };
 
