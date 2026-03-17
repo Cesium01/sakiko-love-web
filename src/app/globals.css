@@ -6,11 +6,11 @@
 @layer base {
 
   :root {
-    --bg-global: url('/bg-light.png');
+    --bg-global: url('https://tlias-cesium.oss-cn-hangzhou.aliyuncs.com/sakiko-love/background/bg-light.png');
   }
 
   .dark {
-    --bg-global: url('/bg-dark.png');
+    --bg-global: url('https://tlias-cesium.oss-cn-hangzhou.aliyuncs.com/sakiko-love/background/bg-dark.png');
   }
 
   /* 优化全局滚动体验，让滑动更平滑 */
